@@ -1,0 +1,153 @@
+/* Readable supporting type, with the original pegboard composition preserved. */
+.sidebar header p { font-size: 13px; }
+.sidebar .availability { font-size: 13px; letter-spacing: .3px; }
+.sidebar nav button { font-size: 13px; gap: 9px; }
+.sidebar nav i, .sidebar nav em { font-size: 12px; }
+.board .board-top, .board .board-bottom { font-size: 10px; letter-spacing: 1.2px; color: #615b4d; }
+.board .tag-number { font-size: 12px; }
+.board .tag-subtitle { font-size: 14px; }
+.board .tiny { font-size: 12px; line-height: 1.5; padding-top: 10px; }
+.board .work-intro { font-size: 12px; line-height: 1.65; color: #4c4c45; }
+.board .project-list span { font-size: 13px; }
+.board .project-list small { font-size: 11px; line-height: 1.35; color: #58584f; margin-top: 4px; }
+.board .id-card section small { font-size: 10px; color: #57584f; }
+.board .id-card section p { font-size: 12px; line-height: 1.5; }
+.board .id-card footer, .board .airmail footer, .board .badge-bottom > span:first-child { font: 11px/1.4 monospace; }
+.board .pills { gap: 5px; }
+.board .pills span { font-size: 11px; padding: 3px 6px; color: #e2c77f; }
+.board .black-tag .tag-subtitle { color: #d2d1c5; margin-bottom: 14px; }
+.board .receipt-platforms { gap: 14px; }
+.board .receipt-platforms > span { font-size: 12px; }
+.board .receipt-tag footer { font-size: 10px; letter-spacing: .3px; }
+.board .contact-methods > span { font-size: 13px; }
+
+/* All suspended tags share the key tag's polished split-ring finish. */
+.board .hardware .ring {
+  border: none;
+  width: 53px;
+  height: 57px;
+  left: 0;
+  background: radial-gradient(ellipse at center, transparent 51%, #44463f 53%, #d8dad0 57%, #fff 62%, #92968a 67%, #44473f 73%, transparent 76%);
+  box-shadow: 3px 5px 4px #3c322c55;
+}
+.board .binder-clip b {
+  clip-path: none;
+  border-radius: 2px 2px 1px 1px;
+  background: linear-gradient(100deg, #55594f, #171a16 20%, #242822 75%, #454a3f);
+  box-shadow: inset 0 1px 0 #858b78, inset 2px 0 2px #ffffff18;
+}
+
+/* Restore the quiet directional arrows. */
+.board .tag-action { position:absolute;right:17px;bottom:14px;display:block;font:22px/1 Arial,sans-serif;pointer-events:none; }
+.board .tag-action .action-arrow { font:22px/1 Arial,sans-serif; }
+.board .tag-action .action-click { display:none; }
+.board .black-tag .tag-action { right:50%;transform:translateX(50%);bottom:12px; }
+.board .clear-badge .tag-action { right:27px;bottom:22px; }
+.board .receipt-tag .tag-action { right:16px;bottom:12px; }
+.board .id-card footer,.board .airmail footer { min-height:26px; }
+.board .badge-bottom { min-height:35px; }
+
+@media (min-width: 801px) {
+  .fitted-board .work-intro { margin-bottom: 10px; }
+  .fitted-board .clear-badge { height: 448px; }
+  .fitted-board .work-paper { padding-top: 14px; }
+  .fitted-board .profile-heading .tag-subtitle { font-size: 13px; }
+  .fitted-board .receipt-tag .tag-subtitle { font-size: 14px; }
+  .fitted-board .contact-methods > span { font-size: 13px; }
+  .fitted-board .receipt-object { top: 562px; }
+}
+@media (max-width: 800px) {
+  .sidebar header { gap: 12px; flex-wrap: wrap; }
+  .sidebar nav button { width: calc(50% - 7px); font-size: 13px; }
+  .sidebar nav em { font-size: 12px; }
+  .board .board-top, .board .board-bottom { font-size: 10px; letter-spacing: .4px; }
+}
+/* Give the enlarged key-tag copy its own space above the action. */
+.board .keytag { height: 280px; }
+.board .black-tag { height: 275px; }
+
+/* Fit the browser width while retaining a complete board in one screen. */
+@media (min-width:801px) {
+  .fitted-board .frame { grid-template-columns:310px 1fr; }
+  .fitted-board .sidebar { padding:28px 24px 20px; }
+  .fitted-board .sidebar header p { font:15px/1.5 monospace; }
+  .fitted-board .sidebar .availability { font-size:16px;letter-spacing:0; }
+  .fitted-board .sidebar .section-label { font-size:15px; }
+  .fitted-board .sidebar nav button { font-size:16px;padding:12px 0;gap:8px; }
+  .fitted-board .sidebar nav i { font-size:14px; }
+  .fitted-board .sidebar nav em { font:15px Arial,'Microsoft YaHei',sans-serif; }
+  .fitted-board .sidebar .qr-space { font-size:15px; }
+  .fitted-board .works-object { left:31%;width:360px; }
+  .fitted-board .receipt-object { left:35px;top:405px;width:164px!important;height:345px!important; }
+  .fitted-board .receipt-tag { min-height:272px;padding:28px 18px 18px; }
+  .fitted-board .receipt-tag .tag-heading { font-size:23px;line-height:1.12; }
+  .fitted-board .receipt-tag .tag-number { display:block;margin:0 0 12px; }
+  .fitted-board .receipt-platforms { flex-direction:column;gap:12px;margin:16px 0; }
+  .fitted-board .receipt-platforms>span { font-size:13px; }
+  .fitted-board .receipt-tag footer { font-size:10px;line-height:1.5;max-width:95px;min-height:36px; }
+  .fitted-board .skills-object { left:34%;top:509px;width:175px;height:260px; }
+  .fitted-board .black-tag { height:211px;padding:24px 10px 30px; }
+  .fitted-board .black-tag .tag-number { margin-bottom:7px; }
+  .fitted-board .black-tag .tag-heading { margin-bottom:6px; }
+  .fitted-board .black-tag .tag-subtitle { margin-bottom:9px;font-size:13px; }
+  .fitted-board .pills { gap:4px; }
+  .fitted-board .pills span { font-size:10px;padding:3px 5px; }
+}
+@media(min-width:801px) {
+  .fitted-board .works-object { top:0; }
+  .fitted-board .clear-badge { height:424px; }
+  .fitted-board .project-list>div { height:42px; }
+  .fitted-board .project-list img { height:40px; }
+  .fitted-board .board-bottom { font-size:9px;bottom:7px; }
+  .fitted-board .receipt-tag { min-height:263px;padding-bottom:14px; }
+}
+
+@media(min-width:801px) { .fitted-board .board-bottom { display:none; } }
+
+/* Four columns: key/skills, projects, profile/contact, social receipt. */
+.board .object .tag-number { font-size:18px;line-height:1.1;letter-spacing:.4px; }
+@media(min-width:801px) {
+  .fitted-board .key-object { left:2.5%;top:25px; }
+  .fitted-board .skills-object { left:3.5%;top:420px;width:175px;height:330px; }
+  .fitted-board .black-tag { height:263px;padding:36px 10px 35px; }
+  .fitted-board .black-tag .tag-number { margin-bottom:11px; }
+  .fitted-board .black-tag .tag-subtitle { margin-bottom:14px; }
+  .fitted-board .pills { gap:5px; }
+  .fitted-board .pills span { font-size:11px;padding:3px 6px; }
+  .fitted-board .works-object { left:23%;top:24px;width:33%;height:690px; }
+  .fitted-board .clear-badge { height:580px; }
+  .fitted-board .work-paper { padding:22px 16px 16px; }
+  .fitted-board .work-paper h1.tag-heading { font-size:27px;margin-bottom:14px; }
+  .fitted-board .work-paper .tag-number { margin-bottom:18px; }
+  .fitted-board .work-paper .tag-subtitle { margin-bottom:16px; }
+  .fitted-board .work-intro { margin-bottom:18px; }
+  .fitted-board .project-list>div { height:68px; }
+  .fitted-board .project-list img { height:65px;width:70px; }
+  .fitted-board .project-list span { font-size:13px;padding:0 5px; }
+  .fitted-board .profile-object { left:60%;right:auto;top:24px;width:25%; }
+  .fitted-board .contact-object { left:60%;right:auto;top:385px;width:25%; }
+  .fitted-board .id-card { padding:12px 10px; }
+  .fitted-board .id-card section { gap:8px; }
+  .fitted-board .airmail { padding:24px 16px 16px; }
+  .fitted-board .airmail .tag-heading { font-size:25px; }
+  .fitted-board .contact-methods>span { font-size:12px;gap:5px; }
+  .fitted-board .receipt-object { left:auto;right:2%;top:345px;width:12%!important;min-width:125px;height:385px!important; }
+  .fitted-board .receipt-tag { min-height:305px;padding:28px 14px 20px; }
+  .fitted-board .receipt-tag .tag-heading { font-size:20px;overflow-wrap:normal; }
+  .fitted-board .receipt-tag .tag-number { font-size:18px;display:block;margin:0 0 14px; }
+  .fitted-board .receipt-tag .tag-subtitle { font-size:13px; }
+  .fitted-board .receipt-platforms { gap:18px;margin:20px 0; }
+  .fitted-board .receipt-tag footer { margin-top:18px; }
+  .fitted-board .receipt-tag .tag-action { right:12px;bottom:12px; }
+}
+
+/* Balance the clear space between actual object widths, even on wide screens. */
+@media(min-width:801px) {
+  .fitted-board .key-object { left:calc(2% + 8px);top:29px;rotate:1.5deg; }
+  .fitted-board .skills-object { left:2%;top:410px;rotate:-2.5deg; }
+  .fitted-board .works-object { left:calc(10.6667% + 116.6667px);top:19px;rotate:-.7deg; }
+  .fitted-board .profile-object { left:calc(52.3333% + 58.3333px);top:42px;rotate:1.3deg; }
+  .fitted-board .contact-object { left:calc(52.3333% + 58.3333px);top:405px;rotate:-1.2deg; }
+  .fitted-board .receipt-object { right:2%;top:238px;rotate:2deg; }
+  .fitted-board .sidebar header b { font:600 20px/1.5 Arial,'Microsoft YaHei',sans-serif;letter-spacing:.3px; }
+}

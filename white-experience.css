@@ -7,3 +7,32 @@
 @media(prefers-reduced-motion:reduce){.orbit-drawing path{transition:none}.space-disc{will-change:auto}}
 
 .archive-info{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s}.archive-info.is-visible{opacity:1;visibility:visible}.archive-info h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:34px;line-height:1.2}.record-type>b{font-family:Georgia,'Songti SC','SimSun',serif}.archive-nav #contact-open{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inherit}@media(max-width:700px){.archive-info h1{font-size:23px}}
+
+/* Keep the browsing cue centered independently of the disc controls. */
+.white-library .archive-controls { bottom: 24px; min-height: 46px; justify-content: flex-end; pointer-events: none; }
+.archive-controls > .archive-scroll-hint {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  font: 500 15px/1.4 Arial, sans-serif; letter-spacing: 1.8px;
+  white-space: nowrap; color: #222; padding: 12px 18px;
+  background: #fafafae8; border: 1px solid #d6d6d2; border-radius: 30px;
+}
+.archive-scroll-hint > span { display: inline-block; margin-left: 8px; font-size: 20px; vertical-align: -1px; }
+.archive-controls > div { pointer-events: auto; font-size: 12px; }
+@keyframes record-breathe {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+  50% { transform: translateY(-8px) rotate(1.6deg) scale(1.012); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .space-disc-link:is(:hover, :focus-visible) { animation: record-breathe 3.2s ease-in-out infinite; }
+}
+@media (max-width: 699px) {
+  .white-library .archive-controls { bottom: 18px; min-height: 94px; align-items: flex-end; justify-content: center; }
+  .archive-controls > .archive-scroll-hint { top: 0; font-size: 13px; letter-spacing: 1.1px; padding: 9px 14px; }
+  .archive-controls > div { gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .space-disc-link { animation: none; } }
+
+/* A small, unframed cue on the central axis. */
+.archive-controls > .archive-scroll-hint { font:400 11px/1.5 Arial,sans-serif;letter-spacing:1.5px;color:#72726c;padding:7px 0;background:none;border:0;border-radius:0; }
+.archive-scroll-hint > span { font-size:15px;margin-left:7px; }
+@media(max-width:699px) { .archive-controls > .archive-scroll-hint { font-size:10px;padding:9px 0; } }
