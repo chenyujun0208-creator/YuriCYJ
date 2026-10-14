@@ -4,16 +4,28 @@
  let scale=1;
  // Background and sprites share a width-based, undistorted 16:9 plane.
  function fit(){
-  scale=innerWidth>700?document.documentElement.clientWidth/1920:1;
+  scale=1;
+  root.style.setProperty('--portrait-scale',Math.min(document.documentElement.clientWidth/1920,innerHeight/1080));
   root.style.setProperty("--room-height","1080px");
   root.style.setProperty("--room-density",.8);
   root.style.setProperty("--fit-scale",scale);
   const scene=document.querySelector('.scene-entry');
   const width=scene.clientWidth, height=scene.clientHeight;
-  const backgroundHeight=width*1080/1920, offset=innerWidth>700?0:height-backgroundHeight;
-  const items={puppy:[.615,.507,.102,.14815],snitch:[.725,.507,.08333,.14815]};
-  const shadows={puppy:[.615,.507,.102,.14815],snitch:[.725,.507,.08333,.14815]};
-  function place(selector,r){const el=document.querySelector(selector);if(!el)return;const d=1;const w=r[2]*width*d,h=r[3]*width*1080/1920*d;Object.assign(el.style,{left:(r[0]*width+(r[2]*width-w)/2)+'px',top:(offset+(r[1]+r[3])*backgroundHeight-h)+'px',width:w+'px',height:h+'px'});}
+  const desktop=innerWidth>700;
+  const backgroundWidth=Math.max(width,height*1920/1080);
+  const backgroundHeight=backgroundWidth*1080/1920;
+  const offsetX=(width-backgroundWidth)/2;
+  const offset=desktop?(height<=500?height*.48-backgroundHeight*.66:(height-backgroundHeight)/2):height-backgroundHeight;
+  root.style.setProperty('--background-size',`${backgroundWidth}px ${backgroundHeight}px`);
+  root.style.setProperty('--background-position',`${offsetX}px ${offset}px`);
+  const items={puppy:[.635,.507,.102,.14815],snitch:[.725,.507,.08333,.14815]};
+  const shadows=items;
+  function place(selector,r){
+   const el=document.querySelector(selector);if(!el)return;
+   const density=desktop&&height<=500?.62:1;
+   const w=r[2]*backgroundWidth*density,h=r[3]*backgroundHeight*density;
+   Object.assign(el.style,{left:(offsetX+r[0]*backgroundWidth+(r[2]*backgroundWidth-w)/2)+'px',top:(offset+(r[1]+r[3])*backgroundHeight-h)+'px',width:w+'px',height:h+'px'});
+  }
   Object.entries(items).forEach(([id,r])=>place(`[data-toy="${id}"]`,r));
   Object.entries(shadows).forEach(([id,r])=>place(`[data-shadow="${id}"]`,r));
  }
@@ -32,7 +44,7 @@
   const rest=[0,0,0,0,0,0][index];
   function render(t){const dt=Math.min((t-last)/16.67||1,2);last=t;if(!drag){v+=(-angle*.025)*dt;v*=Math.pow(.965,dt);angle+=v*dt;}lift+=(targetLift-lift)*.16;assembly.style.transform=`rotateZ(${Math.max(-75,Math.min(75,rest+angle))}deg)`;if(drag||Math.abs(angle)>.03||Math.abs(v)>.02||Math.abs(lift-targetLift)>.1){raf=requestAnimationFrame(render)}else{raf=0;last=0}}
   function wake(){if(!raf)raf=requestAnimationFrame(render)}wake();
-  object.addEventListener('pointerdown',e=>{if(e.button!==0)return;const r=(pin||object).getBoundingClientRect();drag={id:e.pointerId,x:e.clientX,y:e.clientY,cx:r.left+r.width/2,cy:r.top+r.height/2,moved:false,previous:angle,time:performance.now()};});
+  object.addEventListener('pointerdown',e=>{if(e.button!==0||(e.pointerType==='touch'&&innerWidth<=700))return;const r=(pin||object).getBoundingClientRect();drag={id:e.pointerId,x:e.clientX,y:e.clientY,cx:r.left+r.width/2,cy:r.top+r.height/2,moved:false,previous:angle,time:performance.now()};});
   object.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const distance=Math.hypot(e.clientX-drag.x,e.clientY-drag.y);if(distance>7&&!drag.moved){drag.moved=true;object.setPointerCapture(e.pointerId);object.classList.add('is-dragging');targetLift=0;}if(!drag.moved)return;e.preventDefault();const next=Math.max(-63,Math.min(63,-Math.atan2(e.clientX-drag.cx,Math.max(20*scale,e.clientY-drag.cy))*180/Math.PI));const now=performance.now();v=Math.max(-8,Math.min(8,(next-drag.previous)*16.67/Math.max(8,now-drag.time)));angle=next;drag.previous=next;drag.time=now;wake();});
   function release(e){if(!drag||e.pointerId!==drag.id)return;if(drag.moved){suppressUntil=performance.now()+500;if(performance.now()-drag.time>100)v=0;}drag=null;targetLift=0;object.classList.remove('is-dragging');if(object.hasPointerCapture(e.pointerId))object.releasePointerCapture(e.pointerId);if(motion.matches){angle=v=0;}wake();}
   window.addEventListener('pointerup',release);object.addEventListener('pointercancel',release);object.addEventListener('lostpointercapture',release);
