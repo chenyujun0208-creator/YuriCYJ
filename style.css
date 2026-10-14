@@ -91,3 +91,7 @@ dialog.accounts-modal{width:min(1200px,95vw);max-width:95vw}.accounts-inner{padd
 @media(max-width:800px){.resume-columns{height:auto;min-height:0}.resume-experience{height:65vh;min-height:340px}.account-phones{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 18px}.accounts-inner{padding:30px 20px}.account-phone-card h3{font-size:14px}.account-phone-card:last-child{grid-column:1/-1;width:calc(50% - 9px);justify-self:center}}
 
 .frame{transition:opacity .18s ease,filter .18s ease}.tag-navigation .frame{opacity:0;filter:blur(2px)}@media(prefers-reduced-motion:reduce){.frame{transition:none}}
+
+/* Links to current account content. */
+.account-profile-link{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:10px 8px;border:1px solid #b9b3a6;border-radius:999px;color:var(--ink);font-size:12px;line-height:1.4;text-decoration:none;transition:background .18s,border-color .18s}
+.account-profile-link:hover{background:#e8e4d9;border-color:#777266}.account-profile-link:focus-visible{outline:2px solid #3d7280;outline-offset:4px}

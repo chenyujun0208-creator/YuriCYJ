@@ -1,0 +1,197 @@
+/* Physical stationery on a warm pegboard. Home page only. */
+.frame {
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23776c58' opacity='.13' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+  background:linear-gradient(145deg,#faf9f3 0%,#8f9089 3%,#e6e5dc 7%,#a3a49e 48%,#f5f4ed 65%,#84877f 100%);
+  border-color:#777a73;
+  box-shadow:inset 0 0 0 2px #fff9,inset 0 0 0 5px #8d8f86,0 2px 4px #0008;
+  isolation:isolate;
+}
+.frame .sidebar,.frame .board {border:1px solid #9f9a8b;box-shadow:inset 1px 2px 4px #5c50382b,inset -1px -1px 1px #fff; background-color:#f3e9d6;}
+.frame .sidebar {background-image:var(--grain),linear-gradient(115deg,#fff8e9b0,#e9dfce40);}
+.frame .board {
+  background-image:radial-gradient(circle at center,#625843 0 3px,#857960 3.5px,#b9a98b 4px,#fff6e2 5px,transparent 5.8px),var(--grain),radial-gradient(ellipse at 20% 10%,#fff6e4,#ecdfc6 100%);
+  background-size:56px 56px,180px 180px,100% 100%;background-position:12px 14px,0 0,0 0;
+}
+/* Broad, quiet window-light shadows stay behind the interactive objects. */
+.frame .board:before,.frame .sidebar:before {content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:0;background:linear-gradient(127deg,transparent 0 15%,#6c654916 18%,transparent 22% 49%,#6c654913 53%,transparent 58%),linear-gradient(30deg,transparent 67%,#fff9 75%,transparent 85%);}
+.frame .sidebar {position:relative;}
+.frame .sidebar>* {position:relative;z-index:1;}
+.frame .board-top,.frame .board-bottom {display:none;}
+.frame .sidebar nav button:hover {color:#194ebd;}
+.frame .qr-space img {background:transparent;border:0;padding:0;mix-blend-mode:multiply;}
+.frame .object {rotate:0deg;}
+.frame .pin {background:linear-gradient(90deg,#454747,#f7f6ed 33%,#fff 44%,#9b9c94 56%,#393d3a 83%,#c8cac1);border:1px solid #74766e;box-shadow:1px 2px 1px #fff7,4px 6px 4px #4036284a;}
+.frame .hardware .ring {background:radial-gradient(ellipse at center,transparent 49%,#373c37 51%,#d8dad1 55%,#fffef9 59%,#9a9e95 64%,#333a35 70%,#f4f5e9 73%,transparent 76%);box-shadow:4px 7px 5px #40372645;}
+.frame .object>.fixed-pin {z-index:8;}
+.frame .keytag {left:40px;top:95px;width:115px;height:260px;border-radius:58px;background:linear-gradient(115deg,#306bea 0%,#174dd1 36%,#1343bd 77%,#103798);border:2px solid #1742aa;color:#f8f8f0;padding:48px 16px 28px;box-shadow:inset 2px 2px 3px #83a8fa,inset -2px -3px 4px #0c2d82,2px 3px 0 #10317f,6px 10px 9px #41372832,13px 21px 19px #41372836;}
+.frame .keytag:after {inset:3px;border-radius:55px;border-color:#9ebcfa52;background:linear-gradient(110deg,#fff1,transparent 45%);}
+.frame .keytag:before {left:45px;top:-48px;}
+.frame .keytag .tag-heading {font-size:28px;font-weight:500;line-height:1.04;margin-bottom:12px;}
+.frame .keytag .tag-number {font:16px monospace;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #abc7ff7a;}
+.frame .keytag .tag-subtitle {font-size:15px;margin:0;}
+.frame .keytag .tiny {display:none;}
+.frame .keytag .eyelet {top:16px;background:#343c3a;border:3px ridge #c4c8be;}
+.frame .keytag .tag-action {right:22px;bottom:22px;}
+.frame .silver-key {top:60px;left:4px;transform:rotate(25deg);filter:drop-shadow(5px 8px 3px #51443150);}
+.frame .black-tag {width:175px;height:288px;top:62px;border-radius:50%;padding:43px 12px 35px;background-image:var(--grain),linear-gradient(120deg,#292b28,#141613 80%);border:2px solid #65645c;box-shadow:inset 1px 2px 1px #d7d6c26b,inset -2px -3px 2px #090b08,3px 4px 0 #171916,9px 15px 11px #4037254a,17px 25px 22px #40372520;color:#f3eedb;}
+.frame .black-tag .tag-heading {font-size:28px;letter-spacing:-1px;margin-bottom:7px;}
+.frame .black-tag .tag-number {font-size:16px;color:#f3eedb;margin-bottom:14px;}
+.frame .black-tag .tag-subtitle {font-size:15px;color:#ece7d8;margin-bottom:19px;}
+.frame .black-tag .eyelet {top:10px;border:3px ridge #b7b6aa;background:#1b1d18;}
+.frame .pills {gap:5px 4px;}
+.frame .pills span {font:11px/1.3 Arial,'Microsoft YaHei',sans-serif;color:#e8e1c9;border-color:#c4b99a;padding:3px 6px;}
+.frame .black-tag .tag-action {bottom:18px;}
+.frame .clear-badge {top:78px;height:626px;padding:22px 15px 18px;border:1px solid #b9b7a6;border-radius:17px;background:linear-gradient(115deg,#fff9,#fff1 35%,#fff5 36%,#fff1 48%,#fff5 100%);box-shadow:inset 2px 2px 1px #fffc,inset -2px -2px 1px #a9a18a90,2px 3px 0 #fdf8e7a6,4px 5px 0 #b1aa985c,9px 16px 14px #4e412c38,19px 30px 25px #51452e20;cursor:pointer;}
+.frame .clear-badge:before {content:'WORKS';position:absolute;right:-19px;top:52px;width:24px;height:72px;display:grid;place-items:center;writing-mode:vertical-rl;font:10px monospace;color:white;letter-spacing:1px;background:linear-gradient(90deg,#1240b4,#2357ce);border-radius:0 3px 3px 0;box-shadow:2px 3px 2px #40382640;z-index:-1;}
+.frame .work-paper {background-image:var(--grain),linear-gradient(115deg,#fffdf5,#f7f2e6);border-radius:1px;padding:25px 18px 14px;box-shadow:1px 2px 2px #b1a894,5px 8px 8px #584c3026;}
+.frame .work-paper h1.tag-heading {font-size:28px;font-weight:500;letter-spacing:-1px;margin:0 0 14px;line-height:1.08;}
+.frame .work-paper .tag-number {font:17px monospace;margin-bottom:28px;}
+.frame .work-paper .tag-subtitle {font-size:16px;margin-bottom:22px;}
+.frame .work-intro {font-size:12px;line-height:1.9;margin-bottom:25px;}
+.frame .project-list>div {height:72px;border-color:#c8c0b16b;}
+.frame .project-list b {font:12px monospace;background:none!important;width:27px;}
+.frame .project-list span {font-size:13px;padding:0 5px;}
+.frame .project-list small {font-size:10px;}
+.frame .project-list img {width:68px;height:68px;}
+.frame .badge-bottom {padding-top:14px;border-color:#c8c0b1;}
+.frame .badge-bottom span {font:10px monospace;}
+.frame .clip {top:52px;z-index:7;height:45px;width:44px;left:calc(50% - 22px);border:2px ridge #d7d7ce;border-radius:3px;background:linear-gradient(100deg,#3b3e38,#e5e8dc 7%,#777c70 15%,#9fa293 58%,#3e443b 86%,#c7cabb);box-shadow:2px 3px 2px #302d2359,inset 0 2px 0 #faffed;}
+.frame .screw {width:8px;height:8px;background:radial-gradient(circle at 35% 25%,#fff,#bfc1b4 30%,#4c5148 68%,#aaa99e 72%);}
+.frame .strap {top:61px;height:55px;width:25px;left:calc(50% - 12px);border:1px solid #777b70;border-radius:2px;background:linear-gradient(90deg,#51574f,#d0d4c6 11%,#9ba191 32%,#d6d9cc 62%,#687064);box-shadow:3px 5px 4px #443d2d40;}
+.frame .id-holder {top:105px;padding:14px 12px;border:1px solid #b2ae9e;outline:0;border-radius:13px;background:linear-gradient(118deg,#fff9,#fff1 35%,#fff6 37%,#fff2 60%,#fff7);box-shadow:inset 2px 2px 1px #fffc,inset -2px -2px 1px #a9a18a90,3px 4px 0 #f8f1df8c,7px 13px 12px #51443138,14px 24px 22px #51443118;}
+.frame .id-card {background-image:var(--grain),linear-gradient(110deg,#fffdf5,#f7f2e6);border-radius:1px;padding:15px 10px 13px;box-shadow:1px 2px 2px #b8ae954d;position:relative;}
+.frame .id-card:after {content:'';position:absolute;right:12px;top:18px;width:48px;height:2px;background:#2355c8;}
+.frame .profile-heading .tag-heading {font-size:23px;margin-bottom:5px;letter-spacing:-.7px;}
+.frame .profile-heading .tag-number {font:16px monospace;margin-bottom:16px;}
+.frame .profile-heading .tag-subtitle {font-size:14px;}
+.frame .id-card section {gap:12px;margin:18px 0 14px;}
+.frame .id-card img {width:65px;height:82px;object-fit:cover;border-radius:0;}
+.frame .id-card section b {font-size:16px;}
+.frame .id-card section small {font-size:10px;}
+.frame .id-card section p {font-size:12px;line-height:1.65;margin:10px 0 0;}
+.frame .id-card footer {font:11px monospace;}
+/* A pinned postcard has no hanging assembly or swinging animation. */
+.frame .postcard-paper {position:relative;width:100%;height:278px;text-align:left;border:1px solid #d8cbb3;border-radius:1px 0 12px 1px;padding:33px 16px 17px;background-image:var(--grain),linear-gradient(122deg,#fff9eaf5,#f0e5d0);color:#282824;box-shadow:1px 2px 1px #d0c3a9,6px 11px 8px #4a3e2633,13px 22px 20px #4a3e2626;}
+.frame .postcard-paper:before {content:'';position:absolute;top:28px;bottom:30px;left:70%;border-left:1px solid #a99e8970;}
+.frame .postcard-paper:after {content:'';position:absolute;right:0;bottom:0;width:24px;height:25px;border-radius:100% 0 9px 0;background:linear-gradient(135deg,transparent 34%,#bcae9459 48%,#fffbed 52%,#d1c1a4 100%);pointer-events:none;}
+.frame .postcard-pin {position:absolute;left:47%;top:9px;width:21px;height:21px;border:1px solid #717268;border-radius:50%;background:radial-gradient(circle at 33% 25%,#fffff8 0 8%,#e1e1d3 18%,#92968a 47%,#4a5048 70%,#d0d0be 77%,#777c6e 100%);box-shadow:2px 3px 2px #4d442b80,4px 8px 5px #54462736;}
+.frame .postcard .tag-heading {font-size:25px;letter-spacing:-1px;margin-bottom:8px;position:relative;}
+.frame .postcard .tag-number {font:16px monospace;margin-bottom:17px;}
+.frame .postcard .tag-subtitle {font-size:15px;margin-bottom:29px;}
+.frame .postcard-details {display:flex;flex-direction:column;gap:13px;position:relative;}
+.frame .postcard-details>span {display:flex;align-items:center;gap:6px;font:12px Arial,sans-serif;white-space:nowrap;}
+.frame .postcard-details svg {width:14px;height:14px;flex:none;}
+.frame .postcard footer {font:11px monospace;margin-top:27px;display:flex;gap:15px;align-items:center;}
+.frame .postcard footer>span {font:21px Arial;}
+.frame .postal-stamp {position:absolute;right:9px;top:12px;width:42px;height:53px;padding:3px;border:1px dashed #8e8269;background:#fbf3db;transform:rotate(2deg);}
+.frame .postal-stamp img {width:100%;height:100%;}
+.frame .postal-cancel {position:absolute;right:28px;top:48px;width:51px;height:51px;border:1px solid #827e6d;border-radius:50%;outline:1px solid #827e6d;outline-offset:-4px;display:flex;align-items:center;justify-content:center;text-align:center;font:6px/1.8 monospace;transform:rotate(14deg);opacity:.65;}
+.frame .postal-cancel:before {content:'';position:absolute;right:30px;top:-14px;width:42px;height:24px;background:repeating-linear-gradient(0deg,transparent 0 6px,#7b7766 6px 7px);transform:skewY(-10deg);}
+.frame .postcard-address {position:absolute;right:13px;bottom:39px;width:22%;display:grid;gap:19px;}
+.frame .postcard-address span {border-top:1px solid #9d927570;}
+/* Thin thermal receipt: monochrome item columns, barcode and rolled-paper shading. */
+.frame .receipt-tag {top:62px;min-height:0;height:570px;padding:31px 13px 20px;border:0;border-radius:0;background-image:var(--grain),linear-gradient(94deg,#e7e2d4,#fffdf4 13%,#f8f5e9 73%,#e6dfce 100%);box-shadow:2px 4px 2px #5b4b301c,9px 15px 12px #57492e30;color:#33312a;}
+.frame .receipt-tag:after {bottom:-4px;height:5px;background:linear-gradient(135deg,#f8f5e9 25%,transparent 25%) -3px 0/6px 6px,linear-gradient(225deg,#f8f5e9 25%,transparent 25%) -3px 0/6px 6px;}
+.frame .receipt-tag .tag-heading {font-size:21px;letter-spacing:-.5px;font-weight:500;margin:0 0 7px;}
+.frame .receipt-tag .tag-number {font:16px monospace;display:block;margin:0 0 23px;}
+.frame .receipt-tag .tag-subtitle {font-size:13px;margin:0 0 24px;}
+.frame .receipt-rule {border-color:#817c6b;}
+.frame .receipt-items {font:11px/1.5 'Courier New',monospace;margin-top:12px;}
+.frame .receipt-items>div {display:grid;grid-template-columns:20px 1fr 22px;gap:4px;padding:8px 0;}
+.frame .receipt-items>div>span:last-child {text-align:right;}
+.frame .receipt-items .receipt-columns {padding:0 0 9px;border-bottom:1px dashed #9a927d;margin-bottom:5px;}
+.frame .receipt-total {display:flex;justify-content:space-between;font:10px monospace;border-block:1px dashed #9a927d;margin:9px 0 22px;padding:12px 0;}
+.frame .receipt-message {font:10px/1.7 'Courier New',monospace;margin-bottom:22px;}
+.frame .receipt-barcode {height:35px;background:repeating-linear-gradient(90deg,#35372e 0 1px,transparent 1px 2px,#35372e 2px 4px,transparent 4px 6px,#35372e 6px 7px,transparent 7px 10px,#35372e 10px 13px,transparent 13px 15px);}
+.frame .receipt-tag footer {border:0;padding:20px 0 0;margin:0;display:flex;justify-content:space-between;align-items:end;}
+.frame .receipt-tag footer>span {font:11px/1.9 'Courier New',monospace;letter-spacing:0;}
+.frame .receipt-tag footer .receipt-arrow {font:20px Arial;}
+.frame .binder-clip {width:52px;left:calc(50% - 26px);}
+.frame .binder-clip b {width:52px;left:0;height:25px;top:42px;border-radius:2px;background:linear-gradient(110deg,#666b5e,#191e17 17%,#262c20 80%,#5e6654);border:1px solid #242a1f;box-shadow:inset 0 1px 1px #dddac48c;}
+.frame .binder-clip i {left:14px;width:24px;height:48px;}
+.frame .binder-clip span {top:66px;left:-1px;width:54px;}
+@media(min-width:801px) {
+  .fitted-board .key-object {left:2.5%;top:45px;width:150px;height:355px;}
+  .fitted-board .skills-object {left:3%;top:418px;width:175px;height:350px;}
+  .fitted-board .works-object {left:23%;top:34px;width:34%;height:700px;}
+  .fitted-board .profile-object {left:61%;right:auto;top:41px;width:26%;height:360px;}
+  .fitted-board .contact-object {left:60%;right:auto;top:475px;width:27%;height:278px;}
+  .fitted-board .receipt-object {left:auto;right:1.3%;top:62px;width:11%!important;min-width:118px;height:650px!important;}
+  .fitted-board .sidebar .availability {font-size:14px;}
+  .fitted-board .sidebar nav button {font-size:14px;}
+}
+@media(max-width:800px) {
+  .frame {grid-template-columns:1fr;}
+  .frame .sidebar {padding:24px;}
+  .frame .sidebar .qr-space {display:none!important;}
+  .frame .sidebar nav {display:flex;flex-wrap:wrap;gap:0 14px;margin-top:18px;}
+  .frame .sidebar nav .section-label {width:100%;margin-bottom:8px;}
+  .frame .sidebar nav button {width:calc(50% - 7px);font-size:12px;padding:12px 0;}
+  .frame .board {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 12px;padding:26px 14px 40px;min-height:0;height:auto;overflow:hidden;}
+  .frame .board .object {position:relative;left:auto;right:auto;top:auto;width:100%;max-width:none;height:auto;min-width:0;rotate:0deg;transform:none;}
+  .frame .key-object {order:0;height:370px!important;}
+  .frame .skills-object {order:1;height:370px!important;}
+  .frame .keytag {left:calc(50% - 45px);top:95px;}
+  .frame .silver-key {left:calc(50% - 79px);}
+  .frame .black-tag {width:150px;left:calc(50% - 75px);top:76px;height:278px;padding:43px 9px 35px;}
+  .frame .black-tag .tag-heading {font-size:25px;}
+  .frame .black-tag .tag-subtitle {font-size:13px;}
+  .frame .pills span {font-size:10px;padding:3px 5px;}
+  .frame .works-object {order:2;grid-column:1/-1;height:705px!important;width:min(100%,430px)!important;justify-self:center;}
+  .frame .clear-badge {height:610px;}
+  .frame .profile-object {order:3;grid-column:1/-1;width:min(100%,340px)!important;justify-self:center;height:399px!important;}
+  .frame .contact-object {order:4;grid-column:1/-1;width:min(100%,365px)!important;justify-self:center;margin-top:8px;}
+  .frame .postcard-paper {height:278px;}
+  .frame .postcard-details>span {font-size:13px;}
+  .frame .receipt-object {order:5;grid-column:1/-1;width:160px!important;justify-self:center;height:660px!important;margin-top:20px;}
+  .frame .receipt-tag {height:570px;}
+}
+@media(prefers-reduced-motion:reduce) {.frame .hanging-assembly{will-change:auto;}}
+
+/* Review refinements: legible receipt, quiet directory and an informal arrangement. */
+.qr-filter-defs {position:absolute;pointer-events:none;}
+.frame .qr-space img {filter:url(#qr-ink);mix-blend-mode:normal;background:transparent;}
+.frame .sidebar nav button {gap:13px;justify-content:flex-start;}
+.frame .sidebar nav em {margin-left:0;font:15px/1.5 Arial,'Microsoft YaHei',sans-serif;}
+.frame .sidebar nav i {flex:0 0 22px;font-style:normal;}
+.frame .postcard {position:relative;display:block;width:100%;height:278px;padding:0;border:0;background:none;border-radius:1px;text-align:left;}
+.frame .postcard-paper {display:block;transform-origin:47% 19px;will-change:transform;}
+.frame .postcard-pin {z-index:3;pointer-events:none;}
+.frame .receipt-tag {padding:28px 12px 18px;}
+.frame .receipt-tag .tag-subtitle {margin-bottom:19px;}
+.frame .receipt-tag .tag-number {margin-bottom:20px;}
+.frame .receipt-items {font:13px/1.6 'Courier New',monospace;}
+.frame .receipt-items>div {grid-template-columns:16px minmax(0,1fr) 14px;gap:4px;padding:9px 0;}
+.frame .receipt-platform {display:flex;align-items:center;gap:4px;white-space:nowrap;font:13px/1.6 Arial,'Microsoft YaHei',sans-serif;}
+.frame .receipt-platform img {width:15px;height:15px;object-fit:contain;flex:none;}
+.frame .receipt-platform img[src*="xiaohongshu"] {filter:invert(25%) sepia(85%) saturate(5000%) hue-rotate(333deg);}
+.frame .receipt-total {font-size:12px;margin-bottom:20px;}
+.frame .receipt-message {font:12px/1.7 'Courier New',monospace;margin-bottom:20px;}
+.frame .receipt-tag footer>span {font-size:13px;}
+@media(min-width:801px) {
+ .fitted-board .key-object {left:3%;top:24px;}
+ .fitted-board .skills-object {left:4%;top:403px;}
+ .fitted-board .works-object {left:23%;top:49px;width:32%;}
+ .fitted-board .profile-object {left:58%;top:8px;width:25%;}
+ .fitted-board .contact-object {left:56.5%;top:447px;width:27%;rotate:-2deg;}
+ .fitted-board .receipt-object {right:1.2%;top:93px;width:13%!important;min-width:140px;}
+ .key-object .hanging-assembly {rotate:-4deg;}
+ .skills-object .hanging-assembly {rotate:3deg;}
+ .works-object .hanging-assembly {rotate:-.8deg;}
+ .profile-object .hanging-assembly {rotate:2.4deg;}
+ .receipt-object .hanging-assembly {rotate:1.2deg;}
+}
+@media(max-width:800px) {
+ .frame .sidebar nav em {font-size:13px;}
+ .frame .key-object .hanging-assembly {rotate:-2deg;}
+ .frame .skills-object .hanging-assembly {rotate:2deg;}
+ .frame .postcard-paper {height:278px;}
+ .frame .receipt-object {width:175px!important;}
+}
+@media(prefers-reduced-motion:reduce) {.frame .postcard-paper{will-change:auto;}}
+
+.frame .receipt-items>div {padding:8px 0;}
+.frame .receipt-tag .tag-subtitle {margin-bottom:16px;}
+.frame .receipt-total {margin-bottom:16px;}
+.frame .receipt-tag footer {padding-top:16px;}
+.frame .receipt-tag footer>span:first-child {white-space:nowrap;font-size:12px;}

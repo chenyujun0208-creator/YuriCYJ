@@ -12,3 +12,12 @@ dialog.contact-modal { width:min(580px,82vh,94vw);max-width:calc(100vw - 24px); 
   .contact-modal .contact-photo-row>b { grid-column:1;font-size:14px; }
   .contact-modal .contact-photo-row button { grid-column:2;grid-row:span 2;width:26px;height:30px; }
 }
+/* The image is the coordinate system for every label and copy control. */
+dialog.contact-modal{width:min(580px,82dvh,94vw);container-type:inline-size}
+.contact-modal .contact-photo-card{width:100%;aspect-ratio:510/456;background-size:100% 100%}
+.contact-modal .contact-photo-content{left:20%;top:28%;width:71%}
+.contact-modal .contact-photo-row{grid-template-columns:8.3cqw minmax(0,1fr) 5.2cqw;gap:1.4cqw;padding:3.1cqw 0}
+.contact-modal .contact-photo-row>span{grid-column:auto;font-size:2.24cqw;letter-spacing:.086cqw}
+.contact-modal .contact-photo-row>b{grid-column:auto;font-size:3.1cqw;font-weight:500;white-space:nowrap;overflow-wrap:normal}
+.contact-modal .contact-photo-row button{grid-column:auto;grid-row:auto;width:5.2cqw;height:5.86cqw;padding:0}
+.contact-modal .contact-photo-row button svg{width:3.45cqw;height:3.45cqw}
