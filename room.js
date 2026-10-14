@@ -11,8 +11,8 @@
   const scene=document.querySelector('.scene-entry');
   const width=scene.clientWidth, height=scene.clientHeight;
   const backgroundHeight=width*1080/1920, offset=innerWidth>700?0:height-backgroundHeight;
-  const items={robot:[.48413925,.5124506,.097452,.1488644],bot:[.5828766,.5200776,.08334,.1345866],duck:[.7483698,.5478272,.0593646,.1104518]};
-  const shadows={robot:[.4833333,.5155556,.1675,.1437037],bot:[.5816667,.5288889,.1541667,.1274074],duck:[.7475,.5644444,.1025,.0933333]};
+  const items={puppy:[.615,.507,.102,.14815],snitch:[.725,.507,.08333,.14815]};
+  const shadows={puppy:[.615,.507,.102,.14815],snitch:[.725,.507,.08333,.14815]};
   function place(selector,r){const el=document.querySelector(selector);if(!el)return;const d=1;const w=r[2]*width*d,h=r[3]*width*1080/1920*d;Object.assign(el.style,{left:(r[0]*width+(r[2]*width-w)/2)+'px',top:(offset+(r[1]+r[3])*backgroundHeight-h)+'px',width:w+'px',height:h+'px'});}
   Object.entries(items).forEach(([id,r])=>place(`[data-toy="${id}"]`,r));
   Object.entries(shadows).forEach(([id,r])=>place(`[data-shadow="${id}"]`,r));
@@ -51,4 +51,3 @@ document.querySelectorAll('.reference-toy').forEach(toy=>{
  [toy,shadow].filter(Boolean).forEach(el=>el.addEventListener('animationend',()=>el.classList.remove('hop','wiggle')));
  });
 })();
-
